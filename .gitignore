@@ -1,0 +1,6 @@
+
+.idea/
+webscrapper.iml
+citibikes/__pycache__/
+citibikes/__init__.py
+citibikes/dir_names.py
