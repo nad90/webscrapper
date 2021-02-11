@@ -20,20 +20,20 @@ One line includes:
     Year of Birth
 """
 
-# Web scrapping libs
+#Web scrapping libs
 import requests
 from bs4 import BeautifulSoup
 import webbrowser
 from time import sleep
-# Filtering libs
+#Filtering libs
 import re
 import fnmatch
-# File libs
+#File libs
 import shutil
 import os
 import csv
 from zipfile import ZipFile
-# Data analyses libs
+#Data analyses libs
 import pandas as pd
 
 import citibikes.dir_names
@@ -41,7 +41,7 @@ import citibikes.dir_names
 print("PROCESS BEGINS")
 
 url = "https://s3.amazonaws.com/tripdata/"
-downloads_dir = citibikes.dir_names.DOWNLOADS_DIR  # To replace with the local downloads dir path
+downloads_dir = citibikes.dir_names.DOWNLOADS_DIR  #To replace with the local downloads dir path
 data_dir = citibikes.dir_names.DATA_DIR  #To replace with the local dir path
 zip_dir = data_dir + "zip/"
 csv_dir = data_dir + "csv/"
@@ -50,13 +50,13 @@ final_filepath = csv_dir + "citibike_all.csv"
 data_files = []
 response = requests.get(url)
 
-if response.status_code == 200:  # Transformer en erreur
+if response.status_code == 200:  #TODO Transformer en erreur
     soup = BeautifulSoup(response.text, "html.parser")
 else:
     print("The URL is not responding")
     exit(0)
 
-# Get all the data (excluding those starting with JC).
+#Get all the data (excluding those starting with JC).
 data_files = soup.find_all("key")
 for element in data_files[3:5]:
     file_name = element.text
@@ -66,12 +66,12 @@ for element in data_files[3:5]:
         sleep(120)
 sleep(60)
 
-# Move from Download folder to data folder
+#Move from Download folder to data folder
 for item in os.listdir(downloads_dir):
     print("MOVE ", item)
     shutil.move(downloads_dir + item, zip_dir)
 
-# Unzip the files
+#Unzip the files
 for element in os.listdir(zip_dir):
     print("UNZIP ", element)
     if element.endswith(".zip"):
