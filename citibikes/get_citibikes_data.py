@@ -45,7 +45,7 @@ downloads_dir = citibikes.dir_names.DOWNLOADS_DIR  #To replace with the local do
 data_dir = citibikes.dir_names.DATA_DIR  #To replace with the local dir path
 zip_dir = data_dir + "zip/"
 csv_dir = data_dir + "csv/"
-final_filepath = csv_dir + "citibike_all.csv"
+
 
 data_files = []
 response = requests.get(url)
@@ -58,7 +58,7 @@ else:
 
 #Get all the data (excluding those starting with JC).
 data_files = soup.find_all("key")
-for element in data_files[3:5]:
+for element in data_files:
     file_name = element.text
     if re.search("^(?!JC).*zip$", file_name):
         print("DOWNLOADING ", file_name)
