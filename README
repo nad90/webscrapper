@@ -4,3 +4,5 @@ Set of scripts used to get data from internet.
 Download the archives
 Move them to the data_dir/zip_dir
 Unzip them and put the csv file in data_dir/csv_dir
+
+2. French firstnames
