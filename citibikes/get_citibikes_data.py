@@ -36,13 +36,13 @@ from zipfile import ZipFile
 #Data analyses libs
 import pandas as pd
 
-import citibikes.dir_names
+import config.dir_names
 
 print("PROCESS BEGINS")
 
 url = "https://s3.amazonaws.com/tripdata/"
-downloads_dir = citibikes.dir_names.DOWNLOADS_DIR  #To replace with the local downloads dir path
-data_dir = citibikes.dir_names.DATA_DIR  #To replace with the local dir path
+downloads_dir = config.dir_names.DOWNLOADS_DIR  #To replace with the local downloads dir path
+data_dir = config.dir_names.DATA_DIR  #To replace with the local dir path
 zip_dir = data_dir + "zip/"
 csv_dir = data_dir + "csv/"
 
